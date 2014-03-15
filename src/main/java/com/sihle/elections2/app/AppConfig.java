@@ -7,6 +7,7 @@
 package com.sihle.elections2.app;
 
 import com.sihle.elections2.services.CrudService;
+import com.sihle.elections2.services.crud.Imp.DistrictCrudserviceImp;
 import com.sihle.elections2.services.crud.Imp.PartyCrudserviceImp;
 import com.sihle.elections2.services.crud.Imp.VoterCrudseviceImp;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -24,8 +25,13 @@ public class AppConfig {
         return new PartyCrudserviceImp();
     }
     
-    @Bean(name="partyCrudService")
+    @Bean(name="voterCrudService")
     public CrudService getVoterCrudService(){
         return new VoterCrudseviceImp();
+    }
+    
+    @Bean(name="districtCrudService")
+    public CrudService getDistrictCrudService(){
+        return new DistrictCrudserviceImp();
     } 
 }

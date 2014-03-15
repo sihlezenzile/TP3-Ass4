@@ -6,12 +6,15 @@
 
 package services;
 
-import com.sihle.elections2.model.Voter;
-import com.sihle.elections2.services.crud.VoterCrudservice;
+import com.sihle.elections2.model.Party;
+import com.sihle.elections2.model.Statistics;
+import com.sihle.elections2.services.crud.PartyCrudservice;
+import com.sihle.elections2.services.crud.StatisticsCrudservice;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
+import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,33 +22,35 @@ import org.testng.annotations.Test;
  *
  * @author sihle
  */
-public class VoterTestCrudService {
+public class StatisticTestCrudservice {
     
-    public VoterTestCrudService() {
+    public StatisticTestCrudservice() {
     }
-    
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
     @Mock
-    VoterCrudservice crudService;
+    StatisticsCrudservice crudService;
+
     @BeforeMethod
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        crudService = Mockito.mock(VoterCrudservice.class);
+        crudService = Mockito.mock(StatisticsCrudservice.class);
     }
-
     @Test
     public void testCreate() throws Exception {
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.persist(q1);
-        when(crudService.persist(q1)).thenReturn(returnQuestion);
+        Statistics q1 = new Statistics.InnerStatistics(4).id("7").lowest();
+        Statistics returnParty = crudService.persist(q1);
+        when(crudService.persist(q1)).thenReturn(returnParty);
         Mockito.verify(crudService).persist(q1);
-
-
     }
-
     @Test
     public void testRead() throws Exception {
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.find(q1.getId());
+        Statistics q1 = new Statistics.InnerStatistics(4).id("7").lowest();
+        Statistics  returnQuestion = crudService.find(q1.getId());
         when(crudService.find(q1.getId())).thenReturn(returnQuestion);
         Mockito.verify(crudService).find(q1.getId());
 
@@ -57,9 +62,8 @@ public class VoterTestCrudService {
         // PLEASE FIX FIX FIX
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-
-        Voter returnQuestion = crudService.merge(q1);
+        Statistics q1 = new Statistics.InnerStatistics(4).id("7").lowest();
+        Statistics  returnQuestion = crudService.merge(q1);
         when(crudService.merge(q1)).thenReturn(returnQuestion);
         Mockito.verify(crudService).merge(q1);
 
@@ -67,9 +71,8 @@ public class VoterTestCrudService {
 
     @Test
     public void testDelete() throws Exception {
-
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.remove(q1);
+        Statistics q1 = new Statistics.InnerStatistics(4).id("7").lowest();
+        Statistics returnQuestion = crudService.remove(q1);
         when(crudService.remove(q1)).thenReturn(returnQuestion);
         Mockito.verify(crudService).remove(q1);
 

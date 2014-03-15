@@ -6,13 +6,13 @@
 
 package com.sihle.elections2.services.crud;
 
-import com.sihle.elections2.model.Vote;
+import com.sihle.elections2.model.Voter;
 import com.sihle.elections2.services.CrudService;
 
 /**
  *
  * @author sihle
  */
-public interface VoterCrudservice extends CrudService<Vote, String>{
+public interface VoterCrudservice extends CrudService<Voter, String>{
     
 }

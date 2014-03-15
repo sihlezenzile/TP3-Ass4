@@ -6,8 +6,8 @@
 
 package services;
 
-import com.sihle.elections2.model.Voter;
-import com.sihle.elections2.services.crud.VoterCrudservice;
+import com.sihle.elections2.model.Vote;
+import com.sihle.elections2.services.crud.VoteCrudservice;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
@@ -19,23 +19,28 @@ import org.testng.annotations.Test;
  *
  * @author sihle
  */
-public class VoterTestCrudService {
+public class VoteTestCrudservice {
     
-    public VoterTestCrudService() {
+    public VoteTestCrudservice() {
     }
-    
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
     @Mock
-    VoterCrudservice crudService;
+    VoteCrudservice crudService;
     @BeforeMethod
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        crudService = Mockito.mock(VoterCrudservice.class);
+        crudService = Mockito.mock(VoteCrudservice.class);
     }
 
     @Test
     public void testCreate() throws Exception {
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.persist(q1);
+        Vote q1 = new Vote.InnerVote(1).id("9").vot();
+        Vote returnQuestion = crudService.persist(q1);
         when(crudService.persist(q1)).thenReturn(returnQuestion);
         Mockito.verify(crudService).persist(q1);
 
@@ -44,8 +49,8 @@ public class VoterTestCrudService {
 
     @Test
     public void testRead() throws Exception {
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.find(q1.getId());
+        Vote q1 = new Vote.InnerVote(1).id("9").vot();
+        Vote returnQuestion = crudService.find(q1.getId());
         when(crudService.find(q1.getId())).thenReturn(returnQuestion);
         Mockito.verify(crudService).find(q1.getId());
 
@@ -57,9 +62,8 @@ public class VoterTestCrudService {
         // PLEASE FIX FIX FIX
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-
-        Voter returnQuestion = crudService.merge(q1);
+        Vote q1 = new Vote.InnerVote(1).id("9").vot();
+        Vote returnQuestion = crudService.merge(q1);
         when(crudService.merge(q1)).thenReturn(returnQuestion);
         Mockito.verify(crudService).merge(q1);
 
@@ -68,8 +72,8 @@ public class VoterTestCrudService {
     @Test
     public void testDelete() throws Exception {
 
-        Voter q1 = new Voter.InnerVoter("Western Cape").id("7").province();
-        Voter returnQuestion = crudService.remove(q1);
+        Vote q1 = new Vote.InnerVote(1).id("9").vot();
+        Vote returnQuestion = crudService.remove(q1);
         when(crudService.remove(q1)).thenReturn(returnQuestion);
         Mockito.verify(crudService).remove(q1);
 
