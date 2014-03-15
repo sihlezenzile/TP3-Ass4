@@ -11,7 +11,7 @@ package com.sihle.elections2.model;
  * @author sihle
  */
 
-public  class Voter {
+public final class Voter {
     
     private String id;
     private String name;

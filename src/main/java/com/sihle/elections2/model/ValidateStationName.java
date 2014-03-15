@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author sihle
  */
-public class ValidateStationName implements DataValidation {
+public class ValidateStationName{
     private String id;
     private boolean avail;
 
@@ -45,14 +45,12 @@ public class ValidateStationName implements DataValidation {
         public InnerValStation(boolean a)
         {
             avail = a;
-            
         }
         
         public InnerValStation id(String i)
         {
             id = i;
             return this;
-            
         }
         
         public ValidateStationName avail()
@@ -62,7 +60,7 @@ public class ValidateStationName implements DataValidation {
     }
           
     
-    @Override
+    //@Override
     public boolean isAvalible(String name) {
         Station s1 = new Station.InnerStation("sihle").id("5").name();
         Station s2 = new Station.InnerStation("high").id("6").name();
